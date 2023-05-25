@@ -1,0 +1,30 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor.Schedule
+@using Syncfusion.Blazor.Data
+
+@using Syncfusion.Blazor;
+@using SchedulerLoadOnDemand.Data
+
+@inject IJSRuntime Js
+
+<SfSchedule @ref="AvailabilityScheduleRef" TValue="AppointmentData" Width="100%" Height="600px" @bind-SelectedDate="@SelectedDate">
+    <ScheduleViews>
+        <ScheduleView Option="View.Day"></ScheduleView>
+        <ScheduleView Option="View.Week"></ScheduleView>
+        <ScheduleView Option="View.WorkWeek"></ScheduleView>
+        <ScheduleView Option="View.Month"></ScheduleView>
+        <ScheduleView Option="View.Agenda"></ScheduleView>
+    </ScheduleViews>
+    <ScheduleEventSettings TValue="AppointmentData" Query="@QueryData">
+        <SfDataManager AdaptorInstance="@typeof(AppointmentDataAdaptor)" Adaptor="Adaptors.CustomAdaptor">
+        </SfDataManager>
+    </ScheduleEventSettings>
+</SfSchedule>
+
+@code {
+    public static string UserID = "1";
+    public Query QueryData = new Query().From("AppointmentDatas").AddParams("UserID", UserID);
+    SfSchedule<AppointmentData>? AvailabilityScheduleRef;
+    DateTime SelectedDate { get; set; } = new DateTime(2023, 5, 10);
+}
