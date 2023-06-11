@@ -5,6 +5,10 @@
 @using SchedulerLoadOnDemand.Data
 
 <SfSchedule TValue="AppointmentData" Width="100%" Height="600px" @bind-SelectedDate="@SelectedDate">
+    <ScheduleEventSettings TValue="AppointmentData">
+        <SfDataManager AdaptorInstance="@typeof(AppointmentDataAdaptor)" Adaptor="Adaptors.CustomAdaptor">
+        </SfDataManager>
+    </ScheduleEventSettings>
     <ScheduleViews>
         <ScheduleView Option="View.Day"></ScheduleView>
         <ScheduleView Option="View.Week"></ScheduleView>
@@ -12,12 +16,9 @@
         <ScheduleView Option="View.Month"></ScheduleView>
         <ScheduleView Option="View.Agenda"></ScheduleView>
     </ScheduleViews>
-    <ScheduleEventSettings TValue="AppointmentData">
-        <SfDataManager AdaptorInstance="@typeof(AppointmentDataAdaptor)" Adaptor="Adaptors.CustomAdaptor">
-        </SfDataManager>
-    </ScheduleEventSettings>
+   
 </SfSchedule>
 
 @code {
-    DateTime SelectedDate { get; set; } = new DateTime(2023, 5, 10);
+    DateTime SelectedDate { get; set; } = new DateTime(2023, 6, 10);
 }

@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Components.Web;
 using SchedulerLoadOnDemand.Data;
 using Syncfusion.Blazor;
 using Microsoft.EntityFrameworkCore;
-using SchedulerLoadOnDemand.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Directory.GetCurrentDirectory() + "\\AppData\\AppointmentDataDb.mdf;Integrated Security=True";
+var connectionString = builder.Configuration.GetConnectionString("AppointmentDataDB");
 builder.Services.AddDbContext<AppointmentDataContext>(opts => opts.UseSqlServer(connectionString));
 
 

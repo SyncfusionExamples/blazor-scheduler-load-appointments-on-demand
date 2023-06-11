@@ -2,7 +2,7 @@
 
 namespace SchedulerLoadOnDemand.Data
 {
-    public class AppointmentDataContext: DbContext
+    public class AppointmentDataContext : DbContext
     {
         public AppointmentDataContext(DbContextOptions<AppointmentDataContext> options) : base(options)
         {
@@ -12,15 +12,14 @@ namespace SchedulerLoadOnDemand.Data
             modelBuilder.Entity<AppointmentData>().HasData(
                 new AppointmentData
                 {
-                    RecordID = 1,
                     Id = 1,
                     Subject = "Meeting",
-                    StartTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 10, 0, 0),
-                    EndTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 12, 0, 0),
+                    StartTime = new DateTime(2023, 6, 4, 9, 0, 0),
+                    EndTime = new DateTime(2023, 6, 4, 10, 30, 0),
                     Location = "Tamilnadu"
                 }
-            ); 
+            );
         }
-        public DbSet<AppointmentData> AppointmentDatas { get; set; }
+        public DbSet<AppointmentData> AppointmentDataSet { get; set; }
     }
 }
