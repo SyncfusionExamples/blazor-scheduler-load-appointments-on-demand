@@ -17,24 +17,18 @@ namespace SchedulerLoadOnDemand.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("SchedulerLoadOnDemand.Data.AppointmentData", b =>
                 {
-                    b.Property<int>("RecordID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RecordID"), 1L, 1);
-
-                    b.Property<string>("CategoryColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CssClass")
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -44,15 +38,6 @@ namespace SchedulerLoadOnDemand.Migrations
 
                     b.Property<string>("EndTimezone")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsAllDay")
                         .HasColumnType("bit");
@@ -64,12 +49,6 @@ namespace SchedulerLoadOnDemand.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RecurrenceException")
@@ -90,22 +69,18 @@ namespace SchedulerLoadOnDemand.Migrations
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("Id");
 
-                    b.HasKey("RecordID");
-
-                    b.ToTable("AppointmentDatas");
+                    b.ToTable("AppointmentDataSet");
 
                     b.HasData(
                         new
                         {
-                            RecordID = 1,
-                            EndTime = new DateTime(2023, 5, 25, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Id = 1,
+                            EndTime = new DateTime(2023, 6, 4, 10, 30, 0, 0, DateTimeKind.Unspecified),
                             IsAllDay = false,
                             Location = "Tamilnadu",
-                            StartTime = new DateTime(2023, 5, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2023, 6, 4, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Subject = "Meeting"
                         });
                 });

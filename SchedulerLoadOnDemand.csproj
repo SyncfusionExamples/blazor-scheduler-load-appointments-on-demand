@@ -22,8 +22,4 @@
 		<PackageReference Include="Syncfusion.Blazor.Schedule" Version="21.2.8" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="AppData\" />
-	</ItemGroup>
-
 </Project>

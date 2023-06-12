@@ -18,18 +18,14 @@ namespace SchedulerLoadOnDemand.Data
 
         public async Task<List<AppointmentData>> Get(DateTime StartDate, DateTime EndDate)
         {
-            return await _appointmentDataContext.AppointmentDatas.Where(evt => evt.StartTime >= StartDate && evt.EndTime <= EndDate).ToListAsync();
+            return await _appointmentDataContext.AppointmentDataSet.Where(evt => evt.StartTime >= StartDate && evt.EndTime <= EndDate || evt.RecurrenceRule != null).ToListAsync();
         }
 
-        public async Task<List<AppointmentData>> GetUser(string UserID)
-        {
-            return await _appointmentDataContext.AppointmentDatas.Where(x => x.UserID == UserID).ToListAsync();
-        }
         public async Task Insert(AppointmentData appointment)
         {
+
             var app = new AppointmentData();
             app.Id = appointment.Id;
-            app.UserID = appointment.UserID;
             app.Subject = appointment.Subject;
             app.StartTime = appointment.StartTime;
             app.EndTime = appointment.EndTime;
@@ -42,23 +38,17 @@ namespace SchedulerLoadOnDemand.Data
             app.StartTimezone = appointment.StartTimezone;
             app.EndTimezone = appointment.EndTimezone;
             app.IsReadOnly = appointment.IsReadOnly;
-            await _appointmentDataContext.AppointmentDatas.AddAsync(app);
+            await _appointmentDataContext.AppointmentDataSet.AddAsync(app);
             await _appointmentDataContext.SaveChangesAsync();
-        }
 
-        public async Task<AppointmentData> GetByID(int Id)
-        {
-            var app = await _appointmentDataContext.AppointmentDatas.FirstAsync(c => c.Id == Id);
-            return app;
         }
 
         public async Task Update(AppointmentData appointment)
         {
-            var app = await _appointmentDataContext.AppointmentDatas.FirstAsync(c => c.Id == appointment.Id);
+            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointment.Id);
 
             if (app != null)
             {
-                app.UserID = appointment.UserID;
                 app.Subject = appointment.Subject;
                 app.StartTime = appointment.StartTime;
                 app.EndTime = appointment.EndTime;
@@ -72,18 +62,18 @@ namespace SchedulerLoadOnDemand.Data
                 app.EndTimezone = appointment.EndTimezone;
                 app.IsReadOnly = appointment.IsReadOnly;
 
-                _appointmentDataContext.AppointmentDatas?.Update(app);
+                _appointmentDataContext.AppointmentDataSet?.Update(app);
                 await _appointmentDataContext.SaveChangesAsync();
             }
         }
 
         public async Task Delete(AppointmentData appointment)
         {
-            var app = await _appointmentDataContext.AppointmentDatas.FirstAsync(c => c.Id == appointment.Id);
+            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointment.Id);
 
             if (app != null)
             {
-                _appointmentDataContext.AppointmentDatas?.Remove(app);
+                _appointmentDataContext.AppointmentDataSet?.Remove(app);
                 await _appointmentDataContext.SaveChangesAsync();
             }
         }
