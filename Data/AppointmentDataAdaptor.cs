@@ -40,7 +40,8 @@ namespace SchedulerLoadOnDemand.Data
         //Performs Delete operation
         public async override Task<object> RemoveAsync(DataManager dataManager, object data, string keyField, string key)
         {
-            await _appService.Delete(data as AppointmentData);
+            int id = (int)data;
+            await _appService.Delete(id);
             return data;
         }
 
@@ -53,7 +54,7 @@ namespace SchedulerLoadOnDemand.Data
             {
                 foreach (var data in deleteData)
                 {
-                    await _appService.Delete(data as AppointmentData);
+                    await _appService.Delete(data.Id);
                 }
             }
             List<AppointmentData>? addData = addedRecords as List<AppointmentData>;

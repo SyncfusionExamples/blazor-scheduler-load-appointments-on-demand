@@ -23,9 +23,7 @@ namespace SchedulerLoadOnDemand.Data
 
         public async Task Insert(AppointmentData appointment)
         {
-
-            var app = new AppointmentData();
-            app.Id = appointment.Id;
+            var app = new AppointmentData();            
             app.Subject = appointment.Subject;
             app.StartTime = appointment.StartTime;
             app.EndTime = appointment.EndTime;
@@ -67,9 +65,9 @@ namespace SchedulerLoadOnDemand.Data
             }
         }
 
-        public async Task Delete(AppointmentData appointment)
+        public async Task Delete(int appointmentId)
         {
-            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointment.Id);
+            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointmentId);
 
             if (app != null)
             {
