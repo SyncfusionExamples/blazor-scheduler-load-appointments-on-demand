@@ -5,8 +5,6 @@ namespace SchedulerLoadOnDemand.Data
     public class AppointmentData
     {
         [Key]
-        public int RecordId { get; set; }
-
         public int Id { get; set; }
 
         public string? Subject { get; set; }

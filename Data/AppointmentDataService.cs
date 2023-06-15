@@ -23,9 +23,7 @@ namespace SchedulerLoadOnDemand.Data
 
         public async Task Insert(AppointmentData appointment)
         {
-
-            var app = new AppointmentData();
-            app.Id = appointment.Id;
+            var app = new AppointmentData();            
             app.Subject = appointment.Subject;
             app.StartTime = appointment.StartTime;
             app.EndTime = appointment.EndTime;

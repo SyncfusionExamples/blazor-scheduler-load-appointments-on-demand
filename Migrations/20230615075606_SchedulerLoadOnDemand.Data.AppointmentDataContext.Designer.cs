@@ -12,7 +12,7 @@ using SchedulerLoadOnDemand.Data;
 namespace SchedulerLoadOnDemand.Migrations
 {
     [DbContext(typeof(AppointmentDataContext))]
-    [Migration("20230611145222_SchedulerLoadOnDemand.Data.AppointmentDataContext")]
+    [Migration("20230615075606_SchedulerLoadOnDemand.Data.AppointmentDataContext")]
     partial class SchedulerLoadOnDemandDataAppointmentDataContext
     {
         /// <inheritdoc />

@@ -24,11 +24,11 @@ namespace SchedulerLoadOnDemand.Migrations
 
             modelBuilder.Entity("SchedulerLoadOnDemand.Data.AppointmentData", b =>
                 {
-                    b.Property<int>("RecordId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RecordId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -38,9 +38,6 @@ namespace SchedulerLoadOnDemand.Migrations
 
                     b.Property<string>("EndTimezone")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsAllDay")
                         .HasColumnType("bit");
@@ -72,16 +69,15 @@ namespace SchedulerLoadOnDemand.Migrations
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RecordId");
+                    b.HasKey("Id");
 
                     b.ToTable("AppointmentDataSet");
 
                     b.HasData(
                         new
                         {
-                            RecordId = 1,
-                            EndTime = new DateTime(2023, 6, 4, 10, 30, 0, 0, DateTimeKind.Unspecified),
                             Id = 1,
+                            EndTime = new DateTime(2023, 6, 4, 10, 30, 0, 0, DateTimeKind.Unspecified),
                             IsAllDay = false,
                             Location = "Tamilnadu",
                             StartTime = new DateTime(2023, 6, 4, 9, 0, 0, 0, DateTimeKind.Unspecified),
