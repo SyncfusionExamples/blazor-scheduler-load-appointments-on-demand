@@ -67,9 +67,9 @@ namespace SchedulerLoadOnDemand.Data
             }
         }
 
-        public async Task Delete(AppointmentData appointment)
+        public async Task Delete(int appointmentId)
         {
-            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointment.Id);
+            var app = await _appointmentDataContext.AppointmentDataSet.FirstAsync(c => c.Id == appointmentId);
 
             if (app != null)
             {

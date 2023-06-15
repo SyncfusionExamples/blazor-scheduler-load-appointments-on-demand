@@ -12,6 +12,7 @@ namespace SchedulerLoadOnDemand.Data
             modelBuilder.Entity<AppointmentData>().HasData(
                 new AppointmentData
                 {
+					RecordId =1,
                     Id = 1,
                     Subject = "Meeting",
                     StartTime = new DateTime(2023, 6, 4, 9, 0, 0),
