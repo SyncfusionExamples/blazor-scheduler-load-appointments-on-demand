@@ -9,7 +9,7 @@ A quick start project that helps you how to load appointments on demand in the b
 * Visual Studio 2022
 * Ensure that you are having SQL Server Data Tools within Visual Studio 2022.
 
-# How to run the project
+## How to run the project
 
 * Checkout this project to a location in your disk.
 * Open the solution file using the Visual Studio 2022.
