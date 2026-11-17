@@ -4,8 +4,8 @@ This quick start project demonstrates how to efficiently load appointments on de
 
 ## Prerequisites
 
-* Visual Studio 2022
-* .NET 6.0 or later
+* Visual Studio 2022 (17.14 or later) or Visual Studio Code
+* .NET 10.0 SDK or later
 * SQL Server Database Tools
 
 ## Key Features
@@ -19,7 +19,7 @@ This quick start project demonstrates how to efficiently load appointments on de
 ## How to Run the Project
 
 1. Checkout this project to your local machine
-2. Open the solution file using Visual Studio 2022
+2. Open the solution file using Visual Studio 2022 (17.14 or later) or Visual Studio Code
 3. Build the solution to restore the required NuGet packages
 4. Apply database migrations using the Package Manager console:
    ```
